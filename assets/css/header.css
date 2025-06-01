@@ -1,0 +1,114 @@
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo a {
+    font-family: "Lexend", serif;
+    font-weight: 800;
+    color: #1e56a0 !important;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+a:hover,
+a:active {
+    color: #163172 !important;
+    border-bottom: 5px solid #163172;
+}
+
+.auth-btn {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none !important;
+    transition: background-color 0.3s ease;
+    background-color: #1e56a0 !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.auth-btn:hover {
+    background-color: #163172 !important;
+    color: #fff !important;
+}
+
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: #fff;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu.active {
+    transform: translateY(0);
+}
+
+.mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mobile-nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+    }
+}
