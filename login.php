@@ -1,8 +1,8 @@
 <?php
-require_once "includes/db_connection.php";
-require_once "classes/User.php";
 
 session_start();
+require_once "classes/Database.php";
+require_once "classes/User.php";
 
 $message = "";
 $status = "";
@@ -24,12 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   if ($loggedInUser) {
    $_SESSION["user_id"] = $loggedInUser["id"];
+   $_SESSION["email"] = $loggedInUser["email"];
    $_SESSION["first_name"] = $loggedInUser["first_name"];
    $_SESSION["last_name"] = $loggedInUser["last_name"];
-
+   $_SESSION["created_at"] = $loggedInUser["created_at"];
    $message = "Login successful!";
-   $status = "success";
-   // Redirect or further actions here
+  $status = "success";
   } else {
    $message = "Invalid email or password.";
    $status = "error";
@@ -115,6 +115,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         "positionClass": "toast-top-right",
     };
     toastr.<?= $status ?>("<?= $message ?>");
+        <?php if ($status == "success"): ?>
+    setTimeout(function() {
+      window.location.href = 'dashboard.php';
+    }, 1000);
+    <?php endif; ?>
 </script>
 <?php endif; ?>
       </div>

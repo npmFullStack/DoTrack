@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const passwordInput = document.getElementById("password"); // ✅ fixed here
+    const passwordInput = document.getElementById("password"); 
     const passwordToggle = document.querySelector(".password-toggle");
 
     passwordToggle.addEventListener("click", () => {

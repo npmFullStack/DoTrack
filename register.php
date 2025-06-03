@@ -1,5 +1,5 @@
 <?php
-require_once "includes/db_connection.php";
+require_once "classes/Database.php";
 require_once "classes/User.php";
 
 $message = "";
@@ -69,9 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </img>
           </div>
           <div class="form-section">
-            <h1>Welcome Back!
+            <h1>Sign Up Now
             </h1>
-            <p>Sign in to continue
+            <p>Get started with your task management journey
             </p>
             <form action="register.php" method="POST">
               

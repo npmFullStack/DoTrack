@@ -34,7 +34,7 @@
           DoTrack
         </span>
         <div>
-                  <a href="login.php">
+                  <a href="register.php">
           Sign up for free!
         </a>
         </div>
