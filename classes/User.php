@@ -15,7 +15,6 @@ class User
  public function login($email, $password)
  {
   try {
-   // Prepare SQL statement to find user by email
    $stmt = $this->db->prepare(
     "SELECT * FROM $this->table WHERE email = ? LIMIT 1",
    );
@@ -42,34 +41,32 @@ class User
 
  public function register($firstname, $lastname, $email, $password)
  {
-   
-   try {
-  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+  try {
+   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-  $sql =
-   "INSERT INTO users (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)";
-  $stmt = $this->db->prepare($sql);
-  $stmt->bindParam(":first_name", $firstname);
-  $stmt->bindParam(":last_name", $lastname);
-  $stmt->bindParam(":email", $email);
-  $stmt->bindParam(":password", $hashedPassword);
-  $stmt->execute();
- } catch (PDOException $e) {
+   $sql =
+    "INSERT INTO users (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)";
+   $stmt = $this->db->prepare($sql);
+   $stmt->bindParam(":first_name", $firstname);
+   $stmt->bindParam(":last_name", $lastname);
+   $stmt->bindParam(":email", $email);
+   $stmt->bindParam(":password", $hashedPassword);
+   $stmt->execute();
+  } catch (PDOException $e) {
    error_log("Registration Error: " . $e->getMessage());
    return false;
- } 
- return true;
-}
+  }
+  return true;
+ }
 
-public function logout(){
+ public function logout()
+ {
   session_start();
-session_unset();
-session_destroy();
-header("Location: login.php");
-exit();
-}
-
-
+  session_unset();
+  session_destroy();
+  header("Location: login.php");
+  exit();
+ }
 }
 
 ?>

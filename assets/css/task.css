@@ -17,6 +17,8 @@ body {
 
 /* HEADER */
 .top-bar {
+    position: sticky;
+    top: 0;
     max-height: 70px;
     width: 100%;
     padding: 10px;
@@ -27,6 +29,7 @@ body {
     color: #333;
     font-size: 2rem;
     font-weight: 600;
+    background-color: #fff;
 }
 
 .burger {
@@ -37,6 +40,7 @@ body {
 
 /* CONTENT */
 .task-content {
+    height: 100%;
     padding: 3rem;
     font-size: 1.5rem;
 }
@@ -47,24 +51,224 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
-input[type="search"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    width: 70%;
+/* SEARCH-BAR */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    position: relative;
 }
 
-button[type="submit"] {
-    padding: 10px;
+.search-bar #search {
+    width: 100%;
+    height: 40px;
+    max-width: 800px;
+    color: #333;
+    padding-left: 40px;
     border: none;
-    border-radius: 0 5px 5px 0;
-    background-color: #4caf50;
+    outline: none;
+    font-size: 20px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.search-bar div i {
+    color: #333;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 25px;
+}
+
+.category-btn {
+    background-color: #fff;
+    border: none;
+}
+
+.category-btn i {
+    font-size: 25px;
+    color: #333;
+}
+
+/* BUTTONS */
+.btn-add-task {
+    padding: 10px 20px;
+    background-color: #1e56a0;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add-task a {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.floating-add-btn {
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    display: none;
+}
+
+.floating-add-btn i {
+    color: #1e56a0;
+    font-size: 60px;
+}
+
+/* CARD */
+.card-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 1rem;
+    align-items: center;
+}
+
+.card {
+    height: 200px;
+    width: 350px;
+    padding: 40px;
+    background-color: #007ee8;
+    border-radius: 20px;
+    padding: 10px;
+    display: block;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-head {
+    width: 100%;
     color: #fff;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px;
 }
 
-button[type="submit"]:hover {
-    background-color: #3e8e41;
+.card-body {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.card-body h4 {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-group .due-date {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.upcoming {
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 5px 10px;
+    background-color: #6b96ff;
+    border: 2px solid #0033af;
+    color: #fff;
+    border-radius: 20px;
+}
+.overdue {
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 5px 10px;
+    background-color: #e58585;
+    border: 2px solid #e80000;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    .task-content {
+        padding: 20px;
+    }
+    .btn-add-task {
+        display: none;
+    }
+    .floating-add-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card-holder {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .card {
+        width: 100%;
+    }
 }

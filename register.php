@@ -69,9 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </img>
           </div>
           <div class="form-section">
-            <h1>Sign Up Now
+            <h1>Create your account
             </h1>
-            <p>Get started with your task management journey
+            <p>Sign up to continue
             </p>
             <form action="register.php" method="POST">
               
